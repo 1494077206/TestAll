@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Jdbc/Jdbc.iml" filepath="$PROJECT_DIR$/Jdbc/Jdbc.iml" />
+      <module fileurl="file://$USER_HOME$/Desktop/project/新建文件夹/postgre-generator/postgre-generate.iml" filepath="$USER_HOME$/Desktop/project/新建文件夹/postgre-generator/postgre-generate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ssmtest01/ssmtest01.iml" filepath="$PROJECT_DIR$/ssmtest01/ssmtest01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/test70/test70.iml" filepath="$PROJECT_DIR$/test70/test70.iml" />
+    </modules>
+  </component>
+</project>
