@@ -1,12 +1,14 @@
 package zy.service;
 
 import lombok.extern.slf4j.Slf4j;
-import zy.controller.StudentController;
-import zy.entity.Student;
-import zy.mapper.StudentMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
+import zy.entity.Student;
+import zy.mapper.StudentMapper;
+import zy.resp.ResponseCodes;
+import zy.resp.RestApiResponse;
 import zy.vo.ListVo;
 
 import java.util.List;
@@ -23,8 +25,13 @@ public class StudentService {
     @Autowired
     private StudentMapper studentMapper;
 
-    public List<ListVo> voList(){
-       return studentMapper.voList();
+    public RestApiResponse voList(){
+
+        List<ListVo> listVos = studentMapper.voList();
+        if(!CollectionUtils.isEmpty(listVos)){
+            return RestApiResponse.success(listVos);
+        }
+        return RestApiResponse.build(ResponseCodes.NODATA);
     }
 
     public Student doLogin(Student student) {

@@ -1,8 +1,6 @@
 package zy.entity;
 
 import lombok.Data;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.type.Alias;
 
 /**
  * Created by Administrator on 2020/3/14.

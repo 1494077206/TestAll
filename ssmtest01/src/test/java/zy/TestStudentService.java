@@ -5,16 +5,15 @@ package zy;
 
 //import zy.service.StudentService;
 //import org.junit.jupiter.api.Test;
+
 import lombok.extern.slf4j.Slf4j;
-import zy.entity.Student;
-import zy.fastDfs.FastDFSClient;
-import zy.service.StudentService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import zy.vo.ListVo;
+import zy.fastDfs.FastDFSClient;
+import zy.service.StudentService;
 
 
 /**
@@ -27,13 +26,7 @@ public class TestStudentService {
     @Autowired
     private StudentService studentService;
 
-    @Test
-    public void stuList(){
-        System.out.println("调用方法");
-        for (ListVo vo : studentService.voList()) {
-            System.out.println(vo);
-        }
-    }
+
 //"D:/pic/jiushen.jpg", "jpg"
     @Test
     public void testFastDfs() throws Exception {

@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.*;
 import zy.entity.Student;
 import zy.result.ResultReturn;
 import zy.service.StudentService;
-import zy.vo.ListVo;
+import zy.service.TestService;
 
-import java.util.List;
+import java.text.SimpleDateFormat;
 
 /**
  * Created by Administrator on 2020/3/14.
@@ -17,6 +17,13 @@ import java.util.List;
 @CrossOrigin
 @Slf4j
 public class StudentController {
+
+    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+
+
+    @Autowired
+    private TestService testService;
+
     @Autowired
     private StudentService studentService;
 
@@ -26,12 +33,17 @@ public class StudentController {
       return stu;
     }
 
+    //假想的T平台
     @RequestMapping(value = "list",method = RequestMethod.GET)
-    public List<ListVo> listVos(){
-        for (ListVo listVo : studentService.voList()) {
-            System.out.println(listVo);
-        }
-        return studentService.voList();
+    public String listVos(){
+        return "0";
+    }
+
+    //访问listvo2方法调T平台
+    @RequestMapping(value = "list2",method = RequestMethod.GET)
+    public void listVos2() throws Exception {
+        testService.ttt();
+        System.out.println("abc");
     }
 
     @RequestMapping(value = "add",method = RequestMethod.POST)
@@ -48,4 +60,12 @@ public class StudentController {
         return new ResultReturn(true,"添加成功",students);
     }
 
+    public static void main(String[] args) {
+        String fileName="group1/M00/00/8D/CrCMk16MdceAdYe7AAAbIxAL5X0964.WAV";
+       // String[] strArray = fileName.split("\\.");
+       // int suffixIndex = strArray.length -1;
+       // System.out.println(UUID.randomUUID().toString().substring(10) + "." + strArray[suffixIndex]);
+        String newName = fileName.substring(fileName.lastIndexOf("/")+1);
+        System.out.println(newName);
+    }
 }

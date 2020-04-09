@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper  
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+1.在mybats的开发中namespace有特殊的意思，一定要是对应接口的全限定名
+	通过namespace可以简历mapper.xml和接口之间的关系(名字不重要，位置不重要)
+ -->
+<mapper namespace="zy.mapper.UserMapper">
+	<select id="userList" resultType="zy.vo.ListVo">
+        select t.id,t.name from table_user t
+    </select>
+
+                            <!-- 按顺序自增 -->
+    <insert id="addUser" useGeneratedKeys="true" parameterType="java.util.List">
+       INSERT INTO table_user (name)
+       VALUES
+       <foreach collection="users" item="user" separator=",">
+          (#{user.name})
+       </foreach>
+    </insert>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</mapper>
